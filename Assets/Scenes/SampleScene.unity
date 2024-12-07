@@ -575,8 +575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8dee86f75b8e040a6b9f606b77f3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _counterText: {fileID: 1613018604}
-  _counter: {fileID: 1921069682}
+  _displayText: {fileID: 1613018604}
+  _counterInstance: {fileID: 1921069682}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
