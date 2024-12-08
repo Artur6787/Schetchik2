@@ -6,9 +6,10 @@ using UnityEngine;
 public class Counter : MonoBehaviour
 {
     private float _count = 0;
+    private float _timeForWait = 0.5f;
     private bool _isWork = true;
-    private Coroutine _countingCoroutine = null;
-    private bool _isCounting = false;
+    private Coroutine _countingCoroutine;
+    private bool _isCounting;
 
     public event Action<float> Changed;
 
@@ -27,7 +28,7 @@ public class Counter : MonoBehaviour
         }
     }
 
-    public void StartCounting()
+    private void StartCounting()
     {
         if (_isCounting == false)
         {
@@ -36,7 +37,7 @@ public class Counter : MonoBehaviour
         }
     }
 
-    public void StopCounting()
+    private void StopCounting()
     {
         if (_isCounting)
         {    
@@ -50,12 +51,12 @@ public class Counter : MonoBehaviour
     {
         while (_isWork)
         {
-            yield return new WaitForSeconds(0.5f);
-            Increment();
+            yield return new WaitForSeconds(_timeForWait);
+            Increase();
         }
     }
 
-    public void Increment()
+    public void Increase()
     {
         _count++;
         Changed?.Invoke(_count);

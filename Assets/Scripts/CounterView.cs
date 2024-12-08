@@ -20,9 +20,6 @@ public class CounterView : MonoBehaviour
 
     private void UpdateDisplayText(float currentCount)
     {
-        if (_displayText != null)
-        {
-            _displayText.text = "Count: " + currentCount;
-        }
+        _displayText.text = "Count: " + currentCount;
     }
 }
