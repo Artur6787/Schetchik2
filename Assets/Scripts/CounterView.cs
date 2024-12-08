@@ -25,19 +25,4 @@ public class CounterView : MonoBehaviour
             _displayText.text = "Count: " + currentCount;
         }
     }
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (_counterInstance.IsCounting)
-            {
-                _counterInstance.StopCounting();
-            }
-            else
-            {
-                _counterInstance.StartCounting();
-            }
-        }
-    }
 }

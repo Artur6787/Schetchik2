@@ -5,29 +5,43 @@ using UnityEngine;
 
 public class Counter : MonoBehaviour
 {
-    public float Count => _count;
     private float _count = 0;
-    bool _isWork = true;
-    public bool IsCounting => _isCounting;
-    private Coroutine countingCoroutine = null;
+    private bool _isWork = true;
+    private Coroutine _countingCoroutine = null;
     private bool _isCounting = false;
+
     public event Action<float> Changed;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (_isCounting)
+            {
+                StopCounting();
+            }
+            else
+            {
+                StartCounting();
+            }
+        }
+    }
 
     public void StartCounting()
     {
         if (_isCounting == false)
         {
             _isCounting = true;
-            countingCoroutine = StartCoroutine(CountCoroutine());
+            _countingCoroutine = StartCoroutine(CountCoroutine());
         }
     }
 
     public void StopCounting()
     {
         if (_isCounting)
-        {
-            StopCoroutine(countingCoroutine);
-            countingCoroutine = null;
+        {    
+            StopCoroutine(_countingCoroutine);
+            _countingCoroutine = null;
             _isCounting = false;
         }
     }
